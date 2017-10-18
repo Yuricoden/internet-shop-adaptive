@@ -1,0 +1,32 @@
+include ../menu/menu
+
+mixin header()
+	+b.header&attributes(attributes)
+		+e.content-up
+			.content__wrapper-left
+				.logo
+					a(href="#") Dress ecommerce
+				+e.dropdown-wrapper
+					select.dropdown
+						option(value='en') EN
+						option(value='uk') UK
+						option(value='ru') RU
+			.content__wrapper-right
+				.sign-up
+					a(href='#') Email sign-up
+				.market-bag
+					a(href='#') Bag
+		+e.content-end
+			+menu(
+            	{refs:'#', name:'Women'},
+            	{refs: '#', name: 'Men'},
+           		 {refs: '#', name: 'Handbags'},
+            	{refs:'#', name: 'Accessories'},
+            	{refs:'#', name: 'Sale'},
+           		 {refs: '#', name: 'New Arrivals'},
+            	{refs: '#', name: 'Clearance'},
+            	{refs:'contact.html', name: 'Store Location'}
+				)
+
+
+
