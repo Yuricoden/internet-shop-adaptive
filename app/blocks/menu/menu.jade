@@ -1,0 +1,12 @@
+
+mixin menu(...items)
+	.menu&attributes(attributes)
+		+b('ul').menu__list
+			each item in items
+				+e('li').item
+					a(href=item.refs).item=item.name
+
+
+
+
+
