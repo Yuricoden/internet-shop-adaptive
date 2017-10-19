@@ -12,10 +12,11 @@ mixin header()
 						option(value='uk') UK
 						option(value='ru') RU
 			.content__wrapper-right
-				.sign-up
-					a(href='#') Email sign-up
-				.market-bag
-					a(href='#') Bag
+				.links_vision
+					.sign-up
+						a(href='#') Email sign-up
+					.market-bag
+						a(href='#') Bag
 		+e.content-end
 			+menu(
             	{refs:'#', name:'Women'},
@@ -27,6 +28,11 @@ mixin header()
             	{refs: '#', name: 'Clearance'},
             	{refs:'contact.html', name: 'Store Location'}
 				)
+			+b.product__search
+				form.product__search-wrapper
+					input(type='search' placeholder='Search Style').search_holder
+
+
 
 
 

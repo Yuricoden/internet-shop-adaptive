@@ -7,7 +7,7 @@ $(() => {
 });
 
 
-var font = new fontObserver('Open Sans')
+var font = new fontObserver('FuturaPT-Light')
 
 font.load().then(function () {
     console.log('Font is available');
