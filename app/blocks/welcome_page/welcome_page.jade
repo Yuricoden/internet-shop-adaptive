@@ -1,7 +1,8 @@
 include  ../header-container/header-container
 include  ../container__fluid/container__fluid
-
+include ../banner__sale/banner__sale
 mixin welcome_page()
 	+b.content&attributes(attributes)
 		+header-container()
 		+container__fluid()
+		+banner__sale()
