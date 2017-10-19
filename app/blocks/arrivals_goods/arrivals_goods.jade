@@ -1,0 +1,17 @@
+-var arrivals = [{img: '#',name: 'Decription',price: '100'},{img: '#',name: 'Decription',price: '100'},{img: '#',name: 'Decription',price: '100'},{img: '#',name: 'Decription',price: '100'}]
+mixin arrivals_goods(...items)
+	+b.arrivals_goods&attributes(attributes)
+		+e('h3').name New arrivals
+		if typeof(arrivals) != 'undefined'
+		each item in arrivals
+				+b('div').new__goods
+					+e('img')(src=item.img).img
+					+b('div').description__goods
+						p=item.name
+						p=item.price
+		else
+			p no new products
+
+
+
+
