@@ -124,6 +124,7 @@
     "webpack-stream": "^3.1.0"
   },
   "dependencies": {
+    "coreslider": "^1.2.2",
     "fontfaceobserver": "^2.0.13"
   }
 }
