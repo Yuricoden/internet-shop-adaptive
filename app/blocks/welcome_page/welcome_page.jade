@@ -1,5 +1,7 @@
-include  ../container/container
+include  ../header-container/header-container
+include  ../container__fluid/container__fluid
 
 mixin welcome_page()
 	+b.content&attributes(attributes)
-		+container()
+		+header-container()
+		+container__fluid()
