@@ -9,7 +9,7 @@ $(() => {
 
 
 var font = new fontObserver('FuturaPT-Light')
-
+           new fontObserver('HelveticaNeueCyr-Light')
 font.load().then(function () {
     console.log('Font is available');
 }, function () {
