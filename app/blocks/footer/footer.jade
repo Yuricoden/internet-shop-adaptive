@@ -1,0 +1,49 @@
+include ../footer__links/footer__links
+mixin footer()
+	+b('section').footer&attributes(attributes)
+		+e('div').wrapper
+			+e('div').up
+				.left__side-wrapper
+					.side-left
+						+e('div').left-links
+							+b.caption
+								+e('h4').link Quick Links
+							+footer__quick-links(
+							{name: 'Store Locator',refs:'store.html'},
+                   			{name: 'Gift Cards',refs:'gift.html'},
+						    {name: 'Size guide', refs: 'guide.html'},
+                    		{name: 'About us', refs: 'about.html'},
+                    		{name: 'Support', refs: 'support.html'}
+						)
+						+e('div').right-contacts
+							+b.caption
+								+e('h4').link Customer Care
+							+footer__quick-links(
+                            {name: 'Customer Service', refs: 'sercice.html'},
+                            {name: 'Track my order', refs: 'order.html'},
+                            {name: 'Return policy', refs: 'policy.html'},
+                            {name: 'Shipping & delivery', refs: 'shipping.html'},
+                            {name: 'Contact us', refs: 'contact.html'},
+                            {name: 'Careers', refs: 'careers.html'}
+                		)
+				.right__side-wrapper
+					.contacts_side
+						+b('div').questions
+							+e('h3').name Questions
+							+e('div').tweet
+								a(href='#')
+								p Tweet us @template
+						+b('div').phone
+							p Order by phone
+							+e('p').number 8-800-409-47-12
+					.description__delivery
+						p
+							| We have our own delivery service which operates in 23 major European cities. Delivery time - 3-5 days.
+					.social__links
+						a(href='#') facebook
+						a(href='#') twitter
+
+
+			+e('div').bottom
+
+
