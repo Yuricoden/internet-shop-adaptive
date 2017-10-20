@@ -1,0 +1,20 @@
+-var arrivals = [{img: 'assets/img/photo.png',name: 'Boyfriend T-Shirt',price: '£140.50'},{img: 'assets/img/photo3.png',name: 'Straight Leg Jeans',price: '£38.50'},{img: 'assets/img/photo.png',name: 'Only Busted Knee Jean',price: '£20.50'},{img: 'assets/img/photo4.png',name: 'Straight Leg Jeans',price: '£35.50'}]
+mixin arrivals_goods(...items)
+	+b.arrivals_goods&attributes(attributes)
+		+e('h3').name New arrivals
+		.goods__wrapper
+			if typeof(arrivals) != 'undefined'
+				each item in arrivals
+					+b('div').new__goods
+						+e('img')(src=item.img).img
+						+b('div').description__goods
+							+e('p').name=item.name
+							+e('p').name=item.price
+			else
+				p no new products
+		a(href='#').button__goods
+				| All arrivals
+
+
+
+
