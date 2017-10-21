@@ -65,3 +65,68 @@
 	&:last-child
 		&:after
 			width 0
+.footer__bottom
+	&:before
+		border: 1px solid #e5e5e5;
+		content: '';
+		width: 100%;
+		top -10px
+		position: relative;
+		display: inline-block;
+.bottom__side-wrapper
+	max-width 1300px
+	margin 0 auto
+	display flex
+	padding 35px 0px
+	justify-content: space-between;
+.links__sitemap .links
+	display flex
+	
+.links li a
+	font-set("Helvetica Neue",1rem,#000,700)
+	letter-spacing: 0.36px;
+.links li a
+	margin 15px
+	
+.share__wrapper
+	flex-basis: 15%
+	text-align: right
+
+.share__wrapper > p
+	letter-spacing: 0.54px;
+	font-set('FuturaPT-Demi',1.2rem,#000,700)
+	
+.share__wrapper > p > span
+	font-set('Helvetica Neue',1rem,#000,400)
+.copyright__wrapper p
+	font-set('Helvetica Neue',1rem,#000,700)
+	
+.share_number
+	width 120px
+	color #fff
+	padding 10px
+	border-radius 10px
+	position relative
+	background-color: #f4f4f4;
+	
+	&:after
+		content ''
+		position absolute
+		border-color rgba(255, 0, 0, 0) #f4f9f9 rgba(255, 0, 0, 0) rgba(255, 0, 0, 0)
+		border-style solid
+		border-width 5px
+		right: 53px;
+		top: 14px;
+.show
+	visibility visible
+	animation fadeIn 1s
+	position relative
+	
+@keyframes fadeIn
+	from
+		opacity: 0
+	 to
+		opacity: 1
+
+		
+		
