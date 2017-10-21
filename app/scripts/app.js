@@ -39,3 +39,9 @@ $('.core-slider').coreSlider({
     items: 1,
     slideshow:false
 })
+
+const togglePop = document.getElementsByClassName('share_number')[0]
+const sharelink = document.getElementsByClassName('share_link')[0]
+sharelink.onclick = function toggleShow() {
+    togglePop.classList.toggle('show')
+}
