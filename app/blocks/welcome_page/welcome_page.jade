@@ -3,6 +3,8 @@ include  ../container__fluid/container__fluid
 include ../banner__sale/banner__sale
 include ../arrivals_goods/arrivals_goods
 include ../about__shop/about__shop
+include ../footer/footer
+
 mixin welcome_page()
 	+b.content&attributes(attributes)
 		+header-container()
@@ -10,3 +12,4 @@ mixin welcome_page()
 		+banner__sale()
 		+arrivals_goods()
 		+about__shop()
+		+footer()

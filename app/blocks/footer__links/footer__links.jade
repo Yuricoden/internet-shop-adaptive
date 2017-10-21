@@ -1,0 +1,6 @@
+mixin footer__quick-links(...items)
+	+b.footer__links&attributes(attributes)
+				+e('ul').menu
+					each item in items
+						li
+							a(href=item.refs).item-links=item.name
