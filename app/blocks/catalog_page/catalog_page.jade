@@ -1,3 +1,9 @@
+include ../header-container/header-container
+include ../filter__catalog/filter__catalog
+include ../footer/footer
+
 mixin catalog_page()
-	+b.catalog_page&attributes(attributes)
-		block
+	+b.content&attributes(attributes)
+		+header-container()
+		+filter__catalog()
+
