@@ -1,24 +1,26 @@
-mixin filter(selectName,classSel,...items)
-	.filter__selecter&attributes(attributes)
+mixin filter(selectName,classSel,groundFilter,...items)
+	.filter__selecter
 		.selecter__wrapper
 			p.select_name= selectName.selecterName
 			if(selectName.selecterName == 'Price Range')
-					div.ranges
+				div.ranges
 			else
-					select(class= classSel.nameSel)
-						each item in items
-							option(value=item.optVal,
-							disabled=item.boolean,
-							hidden=item.boolean,
-							selected=item.boolean)=(item.textVal)
+				select(class= classSel.nameSel)
+					each item in items
+						option(value=item.optVal,
+						disabled=item.boolean,
+						hidden=item.boolean,
+						selected=item.boolean)=(item.textVal)
 
 
 mixin filter__catalog()
 	.filter__wrapper
 		+b.filter__catalog&attributes(attributes)
 			.selecters
-				+filter({selecterName: 'Fashion'},
+				+filter(
+				{selecterName: 'Fashion'},
                 {nameSel: 'styleDress'},
+                {checkFilter: 'grond'},
                 {optVal: 'casual',textVal:'Casual Style'},
                 {optVal: 'sport',textVal:'Sportswear Style '},
                 {optVal: 'sleep',textVal:'Sleepwear Style'},
