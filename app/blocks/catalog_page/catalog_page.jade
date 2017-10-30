@@ -1,9 +1,11 @@
 include ../header-container/header-container
 include ../filter__catalog/filter__catalog
 include ../footer/footer
-
+include ../products__catalog/products__catalog
+	
 mixin catalog_page()
 	+b.content&attributes(attributes)
 		+header-container()
 		+filter__catalog()
+		+products__catalog()
 
