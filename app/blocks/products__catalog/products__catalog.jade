@@ -1,0 +1,18 @@
+
+mixin catalog(...items)
+	each item,i in items
+		.product
+			img.imgData(src=`assets/img/product${i}.png`)
+			.productName=item.productName
+			.priceData=item.priceData
+
+
+
+
+
+mixin products__catalog()
+	+b.products__catalog&attributes(attributes)
+		+catalog({productName:'sdfsdf',priceData: '$203'},
+				{productName:'sdfsdf',priceData: '$203'},
+		        {productName:'sdfsdf',priceData: '$203'})
+
