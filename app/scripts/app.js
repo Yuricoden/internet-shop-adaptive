@@ -45,3 +45,53 @@ const sharelink = document.getElementsByClassName('share_link')[0]
 sharelink.onclick = function toggleShow() {
     togglePop.classList.toggle('show')
 }
+
+
+function getParam(callback) {
+    var xhr = new XMLHttpRequest()
+    var method = 'GET'
+    var url = 'https://morning-ridge-20000.herokuapp.com/product'
+
+    xhr.open(method,url,true)
+    xhr.onreadystatechange = function () {
+        if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+            var respData = JSON.parse(xhr.responseText)
+            callback(respData)
+
+        };
+    };
+    xhr.send();
+}
+
+getParam(createData)
+var catalog = document.getElementsByClassName('catalog__items')[0]
+function createData(data) {
+        for (var key in data) {
+            var product = document.createElement('div')
+            product.className = 'product'
+            var descriptionProduct = document.createElement('div')
+                descriptionProduct.className = 'description__product'
+            var dataImg = document.createElement('img')
+                dataImg.src = data[key].img
+            var dataName = document.createElement('div')
+                 dataName.innerHTML = data[key].name
+                dataName.className = 'name__product'
+            var dataPrice = document.createElement('div')
+                dataPrice.innerHTML = data[key].price
+                dataPrice.className = 'price__product'
+            product.appendChild(dataImg)
+            product.appendChild(descriptionProduct)
+            descriptionProduct.appendChild(dataName)
+            descriptionProduct.appendChild(dataPrice)
+            catalog.appendChild(product)
+    }
+}
+
+
+
+
+
+
+
+
+
