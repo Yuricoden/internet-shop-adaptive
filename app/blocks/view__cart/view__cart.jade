@@ -1,0 +1,74 @@
+
+mixin block__cart(imgItem,priceItem,...items)
+		.block__cart
+			.right__block
+				.img__goods
+					img(src= imgItem.imgGoods)
+				.price__goods
+					p= priceItem.priceGoods
+			each item in items
+				.left__block
+					.goods__name
+						h4= item.nameGoods
+					.goods__options
+						ul
+							li
+								a
+									| Color:
+									span= item.colorGoods
+							li
+								a
+									| Size:
+									span= item.sizeGoods
+							li
+								a
+									|Quantity:
+									span= item.quantityGoods
+					.change__options
+						a(href='#') Change details
+
+
+mixin view__cart()
+	+b.view__cart.hide&attributes(attributes)
+		.cart__wrapper
+			.title__wrapper
+				+b('h3').cart__name Shopping bag
+				.icon__close
+			.goods
+				+block__cart({imgGoods:'assets/img/photo.png'},
+						{priceGoods: '450$'},{nameGoods: 'Only Skinny Jeans',
+						colorGoods: 'Phillipa wash', sizeGoods: 'UK 17',
+						quantityGoods:'1'})
+				+block__cart({imgGoods: 'assets/img/photo3.png'},
+           				 {priceGoods: '450$'},{nameGoods: 'Only Skinny Jeans',
+                		colorGoods: 'Phillipa wash', sizeGoods: 'UK 17',
+						quantityGoods: '1'})
+				+block__cart({imgGoods: 'assets/img/photo3.png'},
+                		{priceGoods: '450$'},{
+                  		 nameGoods: 'Only Skinny Jeans',
+                    	colorGoods: 'Phillipa wash', sizeGoods: 'UK 17',
+                    	quantityGoods: '1'})
+				+block__cart({imgGoods: 'assets/img/photo4.png'},
+               			 {priceGoods: '450$'},{
+                   		 nameGoods: 'Only Skinny Jeans',
+						colorGoods: 'Phillipa wash', sizeGoods: 'UK 17',
+                    	quantityGoods: '1'})
+			.message_rate
+				p You've qualified for Free UK Next Day Delivery on your order. Don't forget to enter the code nexday at checkout
+			.checkout__bottom
+				.checkout
+					.links__checkout
+						a(href='#') Save bag
+						a(href='#') Empty bag
+					.button__buy
+						a(href='#') Buy now
+					.price_checkout
+						div
+							| Total Cost
+							span $1640.50
+
+
+
+
+
+
