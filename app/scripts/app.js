@@ -1,3 +1,4 @@
+
 import svg4everybody from 'svg4everybody';
 import $ from 'jquery';
 import fontObserver from 'fontfaceobserver'
@@ -57,9 +58,10 @@ function getParam(callback) {
         if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
             var respData = JSON.parse(xhr.responseText)
             callback(respData)
-
+            console.log(respData)
         };
     };
+
     xhr.send();
 }
 
@@ -84,11 +86,70 @@ function createData(data) {
             descriptionProduct.appendChild(dataName)
             descriptionProduct.appendChild(dataPrice)
             catalog.appendChild(product)
+            for(var category in data[key].data_category) {
+                console.log(data[key].data_category[category])
+                product.setAttribute('data-style', data[key].data_category[category].style)
+                product.setAttribute('data-dress', data[key].data_category[category].dress)
+                product.setAttribute('data-color', data[key].data_category[category].color)
+                product.setAttribute('data-brand', data[key].data_category[category].brand)
+                product.setAttribute('data-size', data[key].data_category[category].size)
+            }
     }
 }
 
 
+const search = document.querySelector('.search_holder')
 
+search.addEventListener('keyup',function(event) {
+    const term = event.target.value.toLowerCase()
+    const tasks = document.getElementsByClassName('catalog__items')[0].children
+        Array.from(tasks).forEach(function (task) {
+            const title = task.lastElementChild.textContent;
+            if (title.toLowerCase().indexOf(term) != -1) {
+                task.style.display = 'block'
+            } else {
+                task.style.display = 'none'
+            }
+            console.log(title)
+        });
+    })
+
+
+const cart = document.querySelector('.view__cart')
+const bag = document.querySelector('.market-bag')
+const close = document.querySelector('.icon__close')
+
+bag.addEventListener('click',function (event) {
+    cart.classList.toggle('show')
+    cart.classList.remove('hide')
+})
+
+
+close.addEventListener('click',function (event) {
+    setTimeout(function () {
+        cart.classList.remove('show')
+    },200)
+})
+
+
+
+var select = document.querySelector('.styleDress')
+
+
+// console.log(dataattr.getAttribute('data-style'))
+//
+// console.log(data[key].data_category[category].style)
+// function elems(callback) {
+//
+//
+//    console.log( callback())
+// }
+// elems(createData)
+// console.log(select[0].value)
+
+// select.addEventListener('click',function () {
+//
+// })
 
 
 
