@@ -1,6 +1,5 @@
 .menu
 	display flex
-	//padding 6.5px
 	flex-basis:75%
 	&__list
 		align-self center
@@ -9,10 +8,35 @@
 	margin 20px
 	text-decoration none
 	font-set('FuturaPT-Demi',1rem,#000,700)
+	&:hover
+		color: #f14a58
 
 .menu__item
 	&:first-child
 		.item
 			margin 0
+@media screen and (max-width: 1024px)
+		.menu__item a
+				font-size 0.75rem
+		
+@media screen and (max-width: 768px)
+			.menu
+				flex-basis 95%
+			.item
+				font-size 0.75rem
+
+@media screen and (max-width: 760px)
+	.menu
+		flex none
+		top 90px
+	.item
+		margin 0
+	.menu__item
+		margin-top 5%
+	.menu__item
+			&:first-child
+				.item
+					margin 0
 			
+	
 	

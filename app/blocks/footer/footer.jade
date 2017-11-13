@@ -28,11 +28,12 @@ mixin footer()
                 		)
 				.right__side-wrapper
 					.contacts_side
-						+b('div').questions
-							+e('h3').name Questions
-							+e('div').tweet
-								a(href='#')
-								p Tweet us @template
+						.questions__wrap
+							+b('div').questions
+								+e('h3').name Questions
+								+e('div').tweet
+									a(href='#')
+									p Tweet us @template
 						+b('div').phone
 							p Order by phone
 							+e('p').number 8-800-409-47-12
@@ -40,16 +41,17 @@ mixin footer()
 						p
 							| We have our own delivery service which operates in 23 major European cities. Delivery time - 3-5 days.
 					.social__links
-						a(href='#') facebook
-						a(href='#') twitter
+						a(href='#').facebook__link.link_social
+						a(href='#').twitter__link.link_social
 
 
 		+e('div').bottom
 				.bottom__side-wrapper
-					.copyright__wrapper
-						p @ 2015,The Template Group Inc.
-					.share__wrapper
-						p.share_link Share <span class='share_number'> 1547 </span>
+					.links__wrapper
+						.copyright__wrapper
+							p @ 2015,The Template Group Inc.
+						.share__wrapper
+							p.share_link Share <span class='share_number'> 1547 </span>
 					.links__sitemap
 						ul.links
 							li

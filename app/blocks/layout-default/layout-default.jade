@@ -3,10 +3,12 @@ include /../node_modules/jade-injected/jade-injected
 include ../page/page-index
 include ../scripts/scripts
 include ../welcome_page/welcome_page
+include ../view__cart/view__cart
 doctype html
 html(lang='ru')
 	include ../head/head
 	+page-index
+		+view__cart
 		block content
 		+welcome_page
 		+scripts(['app.min.js'])

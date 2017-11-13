@@ -7,6 +7,7 @@
 	margin-top 10%
 	display flex
 	justify-content space-between
+	flex-wrap wrap
 .arrivals__name
 	color #000000
 	font-set('FuturaPT-Demi',4rem,black,600)
@@ -38,3 +39,9 @@
 	cursor pointer
 	
 	
+@media screen and (max-width: 550px)
+		.goods__wrapper
+			display: flex
+			align-items: center
+			flex-direction: column
+			justify-content: center

@@ -133,26 +133,20 @@ close.addEventListener('click',function (event) {
 
 
 
-var select = document.querySelector('.styleDress')
+
+$('.nav-toggle').click(function(){
+    $(this).toggleClass('open');
+})
 
 
-// console.log(dataattr.getAttribute('data-style'))
-//
-// console.log(data[key].data_category[category].style)
-// function elems(callback) {
-//
-//
-//    console.log( callback())
-// }
-// elems(createData)
-// console.log(select[0].value)
-
-// select.addEventListener('click',function () {
-//
-// })
-
-
-
-
+var checkbox = document.getElementById('nav-toggle')
+var  content = document.getElementsByClassName('content')[0]
+checkbox.addEventListener('change', function (event) {
+    if(this.checked == true) {
+        content.classList.add('content__fixed')
+    } else {
+        content.classList.remove('content__fixed')
+    }
+})
 
 
