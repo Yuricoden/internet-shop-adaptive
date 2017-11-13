@@ -6,6 +6,9 @@ mixin header()
 			.content__wrapper-left
 				.logo
 					a(href="#") Dress ecommerce
+				.logo__hide
+					a(href='#')
+								| DE
 				+e.dropdown-wrapper
 					select.dropdown
 						option(value='en') EN
@@ -17,20 +20,36 @@ mixin header()
 						a(href='#') Email sign-up
 					.market-bag
 						a(href='#') Bag
-		+e.content-end
-			+menu(
-            	{refs:'#', name:'Women'},
-            	{refs: '#', name: 'Men'},
-           		 {refs: '#', name: 'Handbags'},
-            	{refs:'#', name: 'Accessories'},
-            	{refs:'#', name: 'Sale'},
-           		 {refs: '#', name: 'New Arrivals'},
-            	{refs: '#', name: 'Clearance'},
-            	{refs:'contact.html', name: 'Store Location'}
+						div <span>$</span> 1300 <span>(2)</span>
+		input(type='checkbox')#nav-toggle
+		label(for='nav-toggle').nav-toggle
+			#cross
+				span.cros
+				span.cros
+			#hamburger
+				span.hamb
+				span.hamb
+				span.hamb
+		nav.nav__adaptive
+			+e.content-end
+
+
+				+menu(
+                {refs:'#', name:'Women'},
+                {refs: '#', name: 'Men'},
+                {refs: '#', name: 'Handbags'},
+                {refs:'#', name: 'Accessories'},
+                {refs:'#', name: 'Sale'},
+                {refs: '#', name: 'New Arrivals'},
+                {refs: '#', name: 'Clearance'},
+                {refs:'contact.html', name: 'Store Location'}
 				)
-			+b.product__search
-				form.product__search-wrapper
-					input(type='search' placeholder='Search Style').search_holder
+				+b.product__search
+					form.product__search-wrapper
+						input(type='search' placeholder='Search Style').search_holder
+					.icon__search
+
+
 
 
 
