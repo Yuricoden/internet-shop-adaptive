@@ -47,11 +47,13 @@
 	
 .block__cart
 	display flex
-	
+	flex  1 1 35%
 .goods
 	display flex
 	flex-wrap: wrap;
 	justify-content: space-between
+.goods__name
+	width 75%
 .goods__name h4
 	font-set('Helvetica Neue',1rem,black,700)
 	letter-spacing: 0.42px
@@ -69,8 +71,6 @@
 	align-items: center
 	margin-top: 1.2rem
 	margin-bottom: 1.2rem
-.block__cart
-	flex auto
 .left__block
 	padding-left: 30px
 	display flex
@@ -131,3 +131,13 @@
 	padding 23px 110px
 	display flex
 	border: 1px solid #e5e5e5
+
+.goods h3 {
+	font-size: 1.3rem
+	font-family: cursive
+	display: flex
+	justify-content: center
+	align-items: center
+	width: 100%
+	height: 175px
+}
