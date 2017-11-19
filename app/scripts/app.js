@@ -9,7 +9,6 @@ $(() => {
 	svg4everybody();
 });
 
-
 const font = new fontObserver('FuturaPT-Light');
 new fontObserver('HelveticaNeueCyr-Light');
 font.load().then(function () {
@@ -53,20 +52,53 @@ function getParam(callback) {
 	const xhr = new XMLHttpRequest();
 	const method = 'GET';
 	const url = 'https://morning-ridge-20000.herokuapp.com/product';
-
 	xhr.open(method, url, true);
 	xhr.onreadystatechange = function () {
 		if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
 			const respData = JSON.parse(xhr.responseText);
+			filter(respData)
 			callback(respData);
-
 		}
 	};
 
 	xhr.send();
 }
-
 getParam(createData);
+
+
+//
+// var select = document.getElementsByTagName('select');
+// function selecters (selData) {
+// 	for (var i = 0; i < select.length; i++) {
+// 		select[i].addEventListener('change', function (event) {
+//
+// 			// console.log(selData.style)
+// 			if(this.options[this.selectedIndex].value == 'casual') {
+//
+// 			}
+// 		});
+// 	}
+// }
+
+//всем display none кроме тех у кого data casual
+//или делаю ajax запрос по стилю сasual
+
+function filter (data) {
+	for (var key in data) {
+		for (var category in data[key].data_category) {
+			// selecters(data[key].data_category[category])
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
 const catalog = document.getElementsByClassName('catalog__items')[0];
 function createData(data) {
 	for (const key in data) {
@@ -106,13 +138,12 @@ search.addEventListener('keyup', function (event) {
 	const term = event.target.value.toLowerCase();
 	const tasks = document.getElementsByClassName('catalog__items')[0].children;
 	Array.from(tasks).forEach(function (task) {
-		const title = task.lastElementChild.textContent;
+		const title = task.lastElementChild.firstElementChild.textContent;
 		if (title.toLowerCase().indexOf(term) != -1) {
 			task.style.display = 'block';
 		}else {
 			task.style.display = 'none';
 		}
-		console.log(title);
 	});
 });
 
@@ -150,5 +181,13 @@ checkbox.addEventListener('change', function (event) {
 		content.classList.remove('content__fixed');
 	}
 });
+
+
+
+
+
+
+
+
 
 
