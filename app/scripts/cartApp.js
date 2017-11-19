@@ -45,7 +45,8 @@ for (let i = 0; i < products.length; i++) {
             '<div class="change__options">' +
             '<a href="#">Change details</a>' +
             '</div>' +
-            '</div>');
+            '</div>' +
+			'<div class="icon__close remove_item"></div>');
 	productParent.appendChild(block);
 }
 
@@ -67,5 +68,15 @@ function clickProduct(product) {
 	});
 }
 
+
+
+let removeIcon = document.querySelectorAll('.remove_item');
+removeIcon.forEach( function (item) {
+	item.addEventListener('click', function (event) {
+		let elemName = this.parentNode.querySelector('.goods__name h4')
+		bag.removeProduct(elemName.innerHTML)
+		this.parentNode.remove()
+	})
+})
 
 
