@@ -20,8 +20,16 @@
 			localStorage.setItem('bag', JSON.stringify(products));
 		};
 
-		this.removeProduct = function () {
+		this.removeProduct = function (productName,count) {
 
+			var item = getProductByName(productName)
+			if(count) {
+				item.count -= count
+			} else {
+				products.splice(products.indexOf(item),1)
+			}
+
+			localStorage.setItem('bag',JSON.stringify(products))
 		};
 
 		function getProductByName(productName) {
@@ -31,7 +39,7 @@
 			}
 		}
 
-		Number(function () {
+		+(function () {
 			const bag = JSON.parse(localStorage.getItem('bag'));
 			if (bag) {
 				products = bag;
