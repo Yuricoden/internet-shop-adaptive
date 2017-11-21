@@ -14,6 +14,8 @@ Product.createEmpty = function () {
 	return product;
 };
 
+
+
 Product.createFromData = function (data, productName) {
 	const product = new Product();
 	product.style = data.style;

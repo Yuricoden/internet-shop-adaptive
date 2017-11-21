@@ -1,4 +1,5 @@
 import Product from './productMethods';
+import card from './cart'
 const products = bag.getProduct();
 const cartCheck = document.querySelector('.goods h3');
 const productParent = document.querySelector('.goods');
@@ -6,10 +7,12 @@ if (products.length) {
 	cartCheck.remove();
 }
 
+
 window.addEventListener('load',function () {
 	$('.sum_price').html('$' + bag.getProductSum() + ':' + bag.getProductCount())
 	console.log('work')
 })
+
 
 
 for (let i = 0; i < products.length; i++) {
@@ -67,25 +70,23 @@ function clickProduct(product) {
 	product.addEventListener('click', function () {
 		const data = $(this).data();
 		const productName = this.lastChild.firstChild.textContent;
-		const productCreate = Product.createFromData(data,productName);
+		const productCreate = Product.createFromData(data, productName);
 		bag.addProduct(productCreate);
 	});
 }
 
 
+
 let removeIcon = document.querySelectorAll('.remove_item');
-removeIcon.forEach( function (item) {
+removeIcon.forEach(function (item) {
 	item.addEventListener('click', function (event) {
-		event.preventDefault()
 		let elemName = this.parentNode.querySelector('.goods__name h4')
-		console.log(elemName.innerHTML)
 		bag.removeProduct(elemName.innerHTML)
 		this.parentNode.remove()
 	})
 })
 
-
-	document.addEventListener('update-cart', function (e) {
-		$('.sum_price').html('$' + bag.getProductSum() + ':' + bag.getProductCount())
-	})
+document.addEventListener('update-cart', function (e) {
+	$('.sum_price').html('$' + bag.getProductSum() + ':' + bag.getProductCount())
+})
 

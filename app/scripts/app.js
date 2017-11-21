@@ -2,9 +2,9 @@ import svg4everybody from 'svg4everybody';
 import $ from 'jquery';
 import fontObserver from 'fontfaceobserver';
 import coreslider from 'coreslider';
-import card from './cart';
 import cartApp from './cartApp';
 import Product from './productMethods';
+
 
 
 $(() => {
@@ -66,6 +66,7 @@ function getParam(callback) {
 }
 getParam(createData);
 
+
 //
 // var select = document.getElementsByTagName('select');
 // function selecters (selData) {
@@ -80,8 +81,8 @@ getParam(createData);
 // 	}
 // }
 
-//всем display none кроме тех у кого data casual
-//или делаю ajax запрос по стилю сasual
+
+
 
 // function filter (data) {
 // 	for (var key in data) {
@@ -90,6 +91,7 @@ getParam(createData);
 // 		}
 // 	}
 // }
+
 
 
 const catalog = document.getElementsByClassName('catalog__items')[0];
@@ -175,8 +177,6 @@ checkbox.addEventListener('change', function (event) {
 		content.classList.remove('content__fixed');
 	}
 });
-
-
 
 
 
