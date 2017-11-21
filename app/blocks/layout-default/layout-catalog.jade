@@ -2,10 +2,11 @@ include /../node_modules/bemto.jade/bemto
 include /../node_modules/jade-injected/jade-injected
 include ../page/page-catalog
 include ../scripts/scripts
-
+include ../catalog_page/catalog_page
 doctype html
 html(lang='ru')
 	include ../head/head
 	+page-catalog
 		block content
+		+catalog_page
 		+scripts(['app.min.js'])

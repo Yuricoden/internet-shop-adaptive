@@ -1,0 +1,28 @@
+mixin view__cart()
+	+b.view__cart.hide&attributes(attributes)
+		.cart__wrapper
+			.title__wrapper
+				+b('h3').cart__name Shopping bag
+				.icon__close
+			.goods
+				h3.clear__bag Bag clear
+			.message_rate
+				p You've qualified for Free UK Next Day Delivery on your order. Don't forget to enter the code nexday at checkout
+			.checkout__bottom
+				.checkout
+					.links__checkout
+						a(href='#') Save bag
+						a(href='#') Empty bag
+					.button__buy
+						a(href='#') Buy now
+					.price_checkout
+						div
+							| Total Cost
+						span.sum_price
+
+
+
+
+
+
+

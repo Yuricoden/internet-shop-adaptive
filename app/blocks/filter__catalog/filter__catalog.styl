@@ -1,0 +1,71 @@
+.filter__catalog
+	max-width 1300px
+	margin 0 auto
+	padding-left: 59px;
+	padding-right: 59px;
+.selecters
+	display flex
+	
+.filter__wrapper
+	margin-top 20px
+	border-bottom: 1px solid #e5e5e5;
+	background-color: #ffffff;
+	border-top: 2px solid #e5e5e5;
+	
+.filter__selecter
+	display: flex
+	position relative
+	flex-direction column
+	flex: 1 1 16.7%
+	height 68px
+	align-items: center;
+	justify-content: center;
+
+.selecter__wrapper
+	& select
+		border none
+		appearance: none;
+.selecter__wrapper
+	position relative
+	width 100%
+	padding-left 10px
+	& select
+		font-set("FuturaPT-Demi",18px,#000,700)
+		width 100%
+		&  option
+			border none
+			outline none
+.filter__selecter
+				&:nth-child(3n+1),&:nth-child(5)
+							& select
+									background:#f3f2f2
+									color: #f14a58
+.filter__selecter
+	&:nth-child(3n+1),&:nth-child(5)
+			background: #f3f2f2;
+.filter__selecter
+		&:after
+			content: "▼";
+			padding: 0 8px;
+			font-size: 12px;
+			position: absolute;
+			right: 8px;
+			top: 25px;
+			z-index: 1;
+			text-align: center;
+			width: 10%;
+			height: 100%;
+			pointer-events: none;
+			box-sizing: border-box;
+	
+.select_name
+	font-set("Helvetica Neue",12px,#000,700)
+
+.filter__selecter:nth-child(6)
+		& .selecter__wrapper
+			& .select_name
+				font-set("FuturaPT-Demi",18px,#000,700)
+				
+@media screen and (max-width: 768px)
+			.filter__wrapper
+				display: none

@@ -1,11 +1,16 @@
+
+	
+.content__fixed
+	position:fixed
+
 .header
 	&__content-up
-		display: flex;
+		display: flex
 		justify-content: space-between
+		align-items center
 	&__content-end
 		display flex
 		margin-top 3%
-		
 .content__wrapper-left
 	flex-basis 75%
 	display flex
@@ -14,14 +19,24 @@
 	display flex
 .logo
 	flex  0.5 1
+.logo a
+	font-set('FuturaPT-Heavy',1.5rem,#000,800)
 .header__dropdown-wrapper
 	flex 1 1
+	align-self center
+.dropdown
+	border none
 .sign-up
-	
 	margin-left auto
 .market-bag
-
+	display flex
+	align-items center
 	margin-left auto
+	cursor pointer
+.market-bag a
+	margin-right: 4px
+.market-bag div
+	font-set('HelveticaNeueCyr-Light',0.8rem,#000,700)
 a {
 	text-decoration none
 }
@@ -45,3 +60,107 @@ a {
 .links_vision
 	display flex
 	flex 1 1 100%
+.logo__hide
+	display none
+.sign-up a
+	font-set('HelveticaNeueCyr-Light',0.8rem,#000,700)
+.market-bag a
+	font-set('HelveticaNeueCyr-Light',0.8rem,#000,700)
+.market-bag span
+	font-set('HelveticaNeueCyr-Light',0.9rem,#000,700)
+.icon__search
+	background url('../images/sprites/png_sprite.png')
+	background-position -56px 0
+	width: 12px
+	height: 12px
+	position: relative
+	top: 2px
+	right: 15px
+	
+@media  screen and (max-width:768px)
+			.product__search-wrapper
+					display none
+			.icon__search
+				top -1px
+				left 20px
+			.product__search
+				flex-basis 0%
+			.content__wrapper-left
+				flex-basis 70%
+			.header__dropdown-wrapper
+				flex 0.5
+			.content__wrapper-right
+				flex-basis 30%
+@media screen and (max-width: 760px)
+			.menu__item
+				.item
+					font-size 2rem
+			.sign-up
+				display none
+			.header__dropdown-wrapper
+				opacity 0
+				
+			.product__search
+				display none
+				
+			.menu__list
+				display flex
+				flex-direction column
+			.content__wrapper-right
+				flex 1 1
+			.content__wrapper-left
+				flex 1 1
+			.header__content-end
+				margin-top 0
+				position relative
+			.header
+				display flex
+				justify-content space-between
+			.menu
+				position absolute
+			.nav__adaptive
+				width: 320px
+				min-width: 320px
+				display block
+				z-index 1
+				height: 100%
+				position: fixed
+				top: 0
+				bottom: 0
+				margin: 0
+				right: -300px
+				padding: 15px 20px
+				background: #f9fffe
+				transition: right 0.3s
+			
+		    #nav-toggle
+				 position absolute
+				 display none
+			#nav-toggle:checked
+				& ~ .nav__adaptive
+					right 0
+				
+@media screen and (max-width: 375px)
+				#nav-toggle:checked
+					& ~ .nav__adaptive
+						width 100%
+				#nav-toggle:checked
+					& ~ .header__dropdown-wrapper
+								display block
+								opacity 1
+								z-index 20
+				.nav__adaptive
+					width: 0px
+					min-width: 0px
+				.market-bag
+					z-index 20
+				.logo
+					display none
+				.logo__hide
+					display block
+				.header__content-up
+					flex 1
+				.logo__hide a
+					font-set('FuturaPT-Heavy',1.5rem,#000,800)
+
+
