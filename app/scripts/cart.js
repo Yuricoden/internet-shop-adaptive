@@ -100,7 +100,7 @@
 				return 0;
 			}
 
-		} //общая скидка за все продукты
+		}
 
 		function getProductByName (productName) {
 			for (var i = 0; i < products.length; i++) {
@@ -114,6 +114,7 @@
 			var bag = JSON.parse(localStorage.getItem('bag'))
 			if (bag) {
 				products = bag;
+				console.log('add')
 			}
 		}()
 	}

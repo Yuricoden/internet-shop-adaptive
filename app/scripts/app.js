@@ -7,6 +7,8 @@ import Product from './productMethods';
 
 
 
+
+
 $(() => {
 	svg4everybody();
 });
