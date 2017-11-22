@@ -71,15 +71,14 @@ getParam(createData);
 
 
 const catalog = document.getElementsByClassName('catalog__items')[0]
-var newarr = []
-var arr = [];
-var col = [];
-var result;
+let newarr = []
+let col = [];
 var select = document.getElementsByTagName('select');
 function selecters (selData) {
 	for (var i = 0; i < select.length; i++) {
 		select[i].addEventListener('change', function (event) {
 			let el = this.options[this.selectedIndex].value
+			console.log(el)
 			$('.catalog__items').empty();
 			var parentSelect = this.getAttribute('data-select')
 			for(var key in selData) {
@@ -142,7 +141,6 @@ function createData(data) {
 			product.setAttribute('data-color', data[key].data_category[category].color);
 			product.setAttribute('data-brand', data[key].data_category[category].brand);
 			product.setAttribute('data-size', data[key].data_category[category].size);
-			product.setAttribute('data-all', 'all')
 		}
 	}
 }
