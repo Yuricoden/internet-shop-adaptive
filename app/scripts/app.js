@@ -61,6 +61,7 @@ function getParam(callback) {
 		if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
 			const respData = JSON.parse(xhr.responseText);
 			callback(respData);
+			selecters(respData)
 		}
 	};
 
@@ -69,34 +70,51 @@ function getParam(callback) {
 getParam(createData);
 
 
-//
-// var select = document.getElementsByTagName('select');
-// function selecters (selData) {
-// 	for (var i = 0; i < select.length; i++) {
-// 		select[i].addEventListener('change', function (event) {
-//
-// 			// console.log(selData.style)
-// 			if(this.options[this.selectedIndex].value == 'casual') {
-//
-// 			}
-// 		});
-// 	}
-// }
+const catalog = document.getElementsByClassName('catalog__items')[0]
+var newarr = []
+var arr = [];
+var col = [];
+var result;
+var select = document.getElementsByTagName('select');
+function selecters (selData) {
+	for (var i = 0; i < select.length; i++) {
+		select[i].addEventListener('change', function (event) {
+			let el = this.options[this.selectedIndex].value
+			$('.catalog__items').empty();
+			var parentSelect = this.getAttribute('data-select')
+			for(var key in selData) {
+				if(selData[key].hasOwnProperty('data_category')) {
+					newarr.push(selData[key])
+				}
+			}
+			newarr.map(function (item) {
+					item.data_category.forEach(function (elem) {
+						if(elem[parentSelect] == el) {
+							return col.push(item)
+						}
+					})
+			})
+			for(var i = 0; i < col.length;i++) {
+				creators()
+				function creators () {
+					const product = document.createElement('div');
+					product.className = 'product';
+					const dataImg = document.createElement('img');
+					dataImg.src = col[i].img;
+					product.appendChild(dataImg);
+					catalog.appendChild(product);
+					}
+				}
+				newarr = []
+				col = []
+			})
+		}
+	}
+selecters()
 
 
 
 
-// function filter (data) {
-// 	for (var key in data) {
-// 		for (var category in data[key].data_category) {
-// 			// selecters(data[key].data_category[category])
-// 		}
-// 	}
-// }
-
-
-
-const catalog = document.getElementsByClassName('catalog__items')[0];
 function createData(data) {
 	for (const key in data) {
 		const product = document.createElement('div');
@@ -124,6 +142,7 @@ function createData(data) {
 			product.setAttribute('data-color', data[key].data_category[category].color);
 			product.setAttribute('data-brand', data[key].data_category[category].brand);
 			product.setAttribute('data-size', data[key].data_category[category].size);
+			product.setAttribute('data-all', 'all')
 		}
 	}
 }
