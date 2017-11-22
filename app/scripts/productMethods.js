@@ -14,13 +14,15 @@ Product.createEmpty = function () {
 	return product;
 };
 
-Product.createFromData = function (data, price, productName) {
+
+
+Product.createFromData = function (data, productName) {
 	const product = new Product();
 	product.style = data.style;
 	product.dress = data.dress;
 	product.color = data.color;
 	product.url = data.url;
-	product.price = price;
+	product.price = data.price;
 	product.name = productName;
 	product.brand = data.brand;
 	product.size = data.size;

@@ -2,8 +2,12 @@ import svg4everybody from 'svg4everybody';
 import $ from 'jquery';
 import fontObserver from 'fontfaceobserver';
 import coreslider from 'coreslider';
-import card from './cart';
 import cartApp from './cartApp';
+import Product from './productMethods';
+
+
+
+
 
 $(() => {
 	svg4everybody();
@@ -56,7 +60,6 @@ function getParam(callback) {
 	xhr.onreadystatechange = function () {
 		if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
 			const respData = JSON.parse(xhr.responseText);
-			filter(respData)
 			callback(respData);
 		}
 	};
@@ -80,22 +83,16 @@ getParam(createData);
 // 	}
 // }
 
-//всем display none кроме тех у кого data casual
-//или делаю ajax запрос по стилю сasual
-
-function filter (data) {
-	for (var key in data) {
-		for (var category in data[key].data_category) {
-			// selecters(data[key].data_category[category])
-		}
-	}
-}
 
 
 
-
-
-
+// function filter (data) {
+// 	for (var key in data) {
+// 		for (var category in data[key].data_category) {
+// 			// selecters(data[key].data_category[category])
+// 		}
+// 	}
+// }
 
 
 
@@ -113,6 +110,7 @@ function createData(data) {
 		dataName.className = 'name__product';
 		const dataPrice = document.createElement('div');
 		dataPrice.innerHTML = data[key].price;
+		product.setAttribute('data-price', data[key].price.substring(1))
 		dataPrice.className = 'price__product';
 		product.appendChild(dataImg);
 		product.appendChild(descriptionProduct);
@@ -181,6 +179,7 @@ checkbox.addEventListener('change', function (event) {
 		content.classList.remove('content__fixed');
 	}
 });
+
 
 
 
