@@ -61,6 +61,7 @@ function getParam(callback) {
 		if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
 			const respData = JSON.parse(xhr.responseText);
 			callback(respData);
+			selecters(respData)
 		}
 	};
 
@@ -69,34 +70,58 @@ function getParam(callback) {
 getParam(createData);
 
 
-//
-// var select = document.getElementsByTagName('select');
-// function selecters (selData) {
-// 	for (var i = 0; i < select.length; i++) {
-// 		select[i].addEventListener('change', function (event) {
-//
-// 			// console.log(selData.style)
-// 			if(this.options[this.selectedIndex].value == 'casual') {
-//
-// 			}
-// 		});
-// 	}
-// }
+const catalog = document.getElementsByClassName('catalog__items')[0]
+let newarr = []
+let col = [];
+var select = document.getElementsByTagName('select');
+function selecters (selData) {
+	for (var i = 0; i < select.length; i++) {
+		select[i].addEventListener('change', function (event) {
+			let el = this.options[this.selectedIndex].value
+			console.log(el)
+			$('.catalog__items').empty();
+			var parentSelect = this.getAttribute('data-select')
+			var allSelect = this.getAttribute('data-all')
+			for(var key in selData) {
+				if(selData[key].hasOwnProperty('data_category')) {
+					newarr.push(selData[key])
+					console.log(newarr)
+				}
+			}
+			newarr.map(function (item) {
+					item.data_category.filter(function (elem) {
+						if(elem[parentSelect] == el) {
+							console.log(item)
+							return console.log(col.push(item))
+						} else if(elem[allSelect] == el) {
+							console.log(item)
+							return console.log(col.push(item))
+						}
+						console.log(elem[parentSelect])
+
+					})
+			})
+			for(var i = 0; i < col.length;i++) {
+				creators()
+				function creators () {
+					const product = document.createElement('div');
+					product.className = 'product';
+					const dataImg = document.createElement('img');
+					dataImg.src = col[i].img;
+					product.appendChild(dataImg);
+					catalog.appendChild(product);
+					}
+				}
+				newarr = []
+				col = []
+			})
+		}
+	}
+selecters()
 
 
 
 
-// function filter (data) {
-// 	for (var key in data) {
-// 		for (var category in data[key].data_category) {
-// 			// selecters(data[key].data_category[category])
-// 		}
-// 	}
-// }
-
-
-
-const catalog = document.getElementsByClassName('catalog__items')[0];
 function createData(data) {
 	for (const key in data) {
 		const product = document.createElement('div');

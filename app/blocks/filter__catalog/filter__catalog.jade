@@ -5,7 +5,7 @@ mixin filter(selectName,classSel,groundFilter,...items)
 			if(selectName.selecterName == 'Price Range')
 				div.ranges
 			else
-				select(class= classSel.nameSel)
+				select(class= classSel.nameSel data-select= groundFilter.dataSelect data-all= 'data_all')
 					each item in items
 						option(value=item.optVal,
 						disabled=item.boolean,
@@ -19,51 +19,56 @@ mixin filter__catalog()
 			.selecters
 				+filter(
 				{selecterName: 'Fashion'},
-                {nameSel: 'styleDress'},
-                {checkFilter: 'grond'},
-                {optVal: 'casual',textVal:'Casual Style'},
-                {optVal: 'sport',textVal:'Sportswear Style '},
-                {optVal: 'sleep',textVal:'Sleepwear Style'},
-                {optVal: 'designer',textVal:'Designers Style'},
-                {optVal: 'expensive',textVal:'Expensive Style '})
+				{nameSel: 'styleDress'},
+				{dataSelect: 'style'},
+				{optVal: 'products_all',textVal:'none'},
+				{optVal: 'casuals',textVal:'Casual Style'},
+				{optVal: 'sportswear',textVal:'Sportswear Style '},
+				{optVal: 'sleepwear',textVal:'Sleepwear Style'},
+				{optVal: 'designers',textVal:'Designers Style'},
+				{optVal: 'expensive',textVal:'Expensive Style '})
 				+filter({selecterName: ''},
-                {nameSel: 'productDress'},
-                {optVal: 'product', textVal: 'Product',boolean:true},
-                {optVal: 't_shirt', textVal: 'T-shirts'},
-                {optVal: 'jacket', textVal: 'jackets'},
-                {optVal: 'jean', textVal: 'jeans'},
-                {optVal: 'business', textVal: 'business suit'},
-                {optVal: 'sweater', textVal: 'sweaters'})
+				{nameSel: 'productDress'},
+				{dataSelect: 'dress'},
+				{optVal: 'product', textVal: 'Product',boolean:true},
+				{optVal: 't_shirt', textVal: 'T-shirts'},
+				{optVal: 'jackets', textVal: 'jackets'},
+				{optVal: 'jeans', textVal: 'jeans'},
+				{optVal: 'business', textVal: 'business suit'},
+				{optVal: 'sweaters', textVal: 'sweaters'})
 				+filter({selecterName: ''},
-                {nameSel: 'colorDress'},
-                {optVal: 'color', textVal: 'Color', boolean: true},
-                {optVal: 'black', textVal: 'black'},
-                {optVal: 'brown', textVal: 'brown'},
-                {optVal: 'navy', textVal: 'navy'},
-                {optVal: 'red', textVal: 'red'},
-                {optVal: 'purple', textVal: 'purple'},
-                {optVal: 'white', textVal: 'white'},
-                {optVal: 'striped', textVal: 'striped'})
+				{nameSel: 'colorDress'},
+				{dataSelect: 'color'},
+				{optVal: 'color', textVal: 'Color', boolean: true},
+				{optVal: 'black', textVal: 'black'},
+				{optVal: 'brown', textVal: 'brown'},
+				{optVal: 'navy', textVal: 'navy'},
+				{optVal: 'red', textVal: 'red'},
+				{optVal: 'purple', textVal: 'purple'},
+				{optVal: 'white', textVal: 'white'},
+				{optVal: 'striped', textVal: 'striped'})
 				+filter({selecterName: 'Brand'},
-                {nameSel: 'brandDress'},
-                {optVal: 'antipodium', textVal: 'Antipodium'},
-                {optVal: 'nike', textVal: 'Nike'},
-                {optVal: 'levis', textVal: 'Levis'},
-                {optVal: 'river', textVal: 'River Island'},
-                {optVal: 'navy', textVal: 'navy'},
-                {optVal: 'red', textVal: 'red'},
-                {optVal: 'purple', textVal: 'purple'},
-                {optVal: 'white', textVal: 'white'},
-                {optVal: 'striped', textVal: 'striped'})
+				{nameSel: 'brandDress'},
+				{dataSelect: 'brand'},
+				{optVal: 'antipodium', textVal: 'Antipodium'},
+				{optVal: 'nike', textVal: 'Nike'},
+				{optVal: 'levis', textVal: 'Levis'},
+				{optVal: 'river', textVal: 'River Island'},
+				{optVal: 'navy', textVal: 'navy'},
+				{optVal: 'red', textVal: 'red'},
+				{optVal: 'purple', textVal: 'purple'},
+				{optVal: 'white', textVal: 'white'},
+				{optVal: 'striped', textVal: 'striped'})
 				+filter({selecterName: 'Size'},
-                {nameSel: 'sizeDress'},
-                {optVal: 'uk18', textVal: 'UK 18'},
-                {optVal: 'uk18l', textVal: 'UK 18L'},
-                {optVal: 'uk20', textVal: 'UK 20'},
-                {optVal: 'uk20l', textVal: 'UK 20L'},
-                {optVal: 'uk20s', textVal: 'UK 20S'},
-                {optVal: 'uk22m', textVal: 'UK 22M'},
-                {optVal: 'uk25l', textVal: 'UK 25L'})
+				{nameSel: 'sizeDress'},
+				{dataSelect: 'size'},
+				{optVal: 'uk18', textVal: 'UK 18'},
+				{optVal: 'uk18l', textVal: 'UK 18L'},
+				{optVal: 'uk20', textVal: 'UK 20'},
+				{optVal: 'uk20l', textVal: 'UK 20L'},
+				{optVal: 'uk20s', textVal: 'UK 20S'},
+				{optVal: 'uk22m', textVal: 'UK 22M'},
+				{optVal: 'uk25l', textVal: 'UK 25L'})
 				+filter({selecterName:'Price Range'})
 
 
