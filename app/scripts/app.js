@@ -89,7 +89,7 @@ function selecters (selData) {
 				}
 			}
 			newarr.map(function (item) {
-					item.data_category.forEach(function (elem) {
+					item.data_category.filter(function (elem) {
 						if(elem[parentSelect] == el) {
 							console.log(item)
 							return console.log(col.push(item))
