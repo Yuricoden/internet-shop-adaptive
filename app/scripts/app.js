@@ -81,16 +81,24 @@ function selecters (selData) {
 			console.log(el)
 			$('.catalog__items').empty();
 			var parentSelect = this.getAttribute('data-select')
+			var allSelect = this.getAttribute('data-all')
 			for(var key in selData) {
 				if(selData[key].hasOwnProperty('data_category')) {
 					newarr.push(selData[key])
+					console.log(newarr)
 				}
 			}
 			newarr.map(function (item) {
-					item.data_category.forEach(function (elem) {
+					item.data_category.filter(function (elem) {
 						if(elem[parentSelect] == el) {
-							return col.push(item)
+							console.log(item)
+							return console.log(col.push(item))
+						} else if(elem[allSelect] == el) {
+							console.log(item)
+							return console.log(col.push(item))
 						}
+						console.log(elem[parentSelect])
+
 					})
 			})
 			for(var i = 0; i < col.length;i++) {

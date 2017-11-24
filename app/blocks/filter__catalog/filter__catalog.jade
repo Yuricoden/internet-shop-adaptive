@@ -5,7 +5,7 @@ mixin filter(selectName,classSel,groundFilter,...items)
 			if(selectName.selecterName == 'Price Range')
 				div.ranges
 			else
-				select(class= classSel.nameSel data-select= groundFilter.dataSelect data-free= 'data_all')
+				select(class= classSel.nameSel data-select= groundFilter.dataSelect data-all= 'data_all')
 					each item in items
 						option(value=item.optVal,
 						disabled=item.boolean,
@@ -22,6 +22,7 @@ mixin filter__catalog()
 				{nameSel: 'styleDress'},
 				{dataSelect: 'style'},
 				{optVal: 'products_all',textVal:'none'},
+				{optVal: 'casuals',textVal:'Casual Style'},
 				{optVal: 'sportswear',textVal:'Sportswear Style '},
 				{optVal: 'sleepwear',textVal:'Sleepwear Style'},
 				{optVal: 'designers',textVal:'Designers Style'},
@@ -31,10 +32,10 @@ mixin filter__catalog()
 				{dataSelect: 'dress'},
 				{optVal: 'product', textVal: 'Product',boolean:true},
 				{optVal: 't_shirt', textVal: 'T-shirts'},
-				{optVal: 'jacket', textVal: 'jackets'},
-				{optVal: 'jean', textVal: 'jeans'},
+				{optVal: 'jackets', textVal: 'jackets'},
+				{optVal: 'jeans', textVal: 'jeans'},
 				{optVal: 'business', textVal: 'business suit'},
-				{optVal: 'sweater', textVal: 'sweaters'})
+				{optVal: 'sweaters', textVal: 'sweaters'})
 				+filter({selecterName: ''},
 				{nameSel: 'colorDress'},
 				{dataSelect: 'color'},
